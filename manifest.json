@@ -3,10 +3,21 @@
   "name": "My Extension",
   "version": "1.0",
   "description": "Honours Project",
+  "background": {
+    "service": {
+      "scripts": ["background.js"],
+      "type": "service_worker",
+      "persistent": true
+    }
+  },
   "permissions": [
     "activeTab",
     "storage",
-    "https://www.googleapis.com/"
+    "https://www.googleapis.com/",
+    "webRequest",
+    "*://amazon.com/*",
+    "*://youtube.com/*",
+    "webRequestBlocking"
   ],
 
   "action": {

@@ -8,11 +8,19 @@ async function searchChannels(channelName) {
   try {
     const response = await fetch(searchUrl);
     const data = await response.json();
+    const channelId = data.items[0].id.channelId;
+     
+  
+    console.log(channelId)
 
     // Check if there are any search results
     if (data.items.length > 0) {
+
+      //console log channelID
+      console.log(data.items[0].snippet.channelId);
       // Return true if there are search results
       return true;
+      
     } else {
       // Return false if there are no search results
       return false;
@@ -20,6 +28,7 @@ async function searchChannels(channelName) {
   } catch (error) {
     console.error(error);
   }
+  console.log(channelId)
 }
 
 async function onSubmit() {
@@ -35,6 +44,7 @@ async function onSubmit() {
      // document.querySelector('#result').textContent = 'Congratulations, we found a match!';
       messageDiv.innerHTML = "Found a match!" ;
       console.log(channelName)
+      
 
     } else {
      //  document.querySelector('#result').textContent = 'Sorry, no match found';
@@ -45,6 +55,14 @@ async function onSubmit() {
   
   // Add an event listener to the search button
   document.querySelector('#search-button').addEventListener('click', onSubmit);
+
+
+
+
+
+  
+  
+  
   
 
 
