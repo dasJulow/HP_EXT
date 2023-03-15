@@ -1,34 +1,36 @@
 {
   "manifest_version": 3,
-  "name": "My Extension",
+  "name": "Fucking_Work",
   "version": "1.0",
   "description": "Honours Project",
-  "background": {
-    "service": {
-      "scripts": ["background.js"],
-      "type": "service_worker",
-      "persistent": true
-    }
-  },
+  
   "permissions": [
     "activeTab",
     "storage",
-    "https://www.googleapis.com/",
+    "declarativeNetRequest",
+    "webNavigation",
+    "tabs",
     "webRequest",
-    "*://amazon.com/*",
-    "*://youtube.com/*",
-    "webRequestBlocking"
+    "*://*.google.com/",
+    "*://www.amazon.com/",
+    "*://www.youtube.com/"
+  ],
+
+  "background": {
+    "service_worker": "src/background.js"
+  },
+
+  "host_permissions":[
+    "<all_urls>"
   ],
 
   "action": {
     "default_icon": "images/zi.png",
     "default_title": "My Extension",
-    "default_popup": "popup.html"
+    "default_popup": "views/popup.html"
   },
+
   "icons": {
     "16": "images/zi.png"
-
   }
-
-
 }
